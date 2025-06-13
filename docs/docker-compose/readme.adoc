@@ -18,3 +18,9 @@ chmod +x /usr/local/bin/docker-compose
 # ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 ----
+
+[source,shell]
+----
+# 重新构建
+docker-compose build --no-cache api && docker-compose up --force-recreate -d api && docker system prune -f
+----
