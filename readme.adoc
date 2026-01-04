@@ -1,6 +1,22 @@
 
 = docker
 
+[source,shell]
+----
+docker run \
+  --rm \
+  -v $(pwd):/app/ \
+  -v $(pwd)/.tmp/.gradle/:/root/.gradle/ \
+  -v $(pwd)/.tmp/.gradle/:/home/$(whoami)/.gradle/ \
+  -e JDK_VERSION=8 \
+  -w /app/ \
+  --privileged \
+  -it \
+  docker.io/ibm-semeru-runtimes:open-25-jdk \
+  sh gradlew --stacktrace clean build
+
+----
+
 docker 优势
 
 image::image-2022-01-12-21-52-30-913.png[]
