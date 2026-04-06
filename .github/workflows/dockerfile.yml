@@ -27,7 +27,7 @@ jobs:
     steps:
       -
         name: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       -
         name: image-name
         if: ${{ env.IMAGE_NAME != '' }}
@@ -55,7 +55,7 @@ jobs:
           password: ${{ secrets.REGISTRY_PASSWORD }}
       -
         name: build-push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v7
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         with:
